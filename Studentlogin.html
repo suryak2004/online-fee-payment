@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login V1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Background with image and static gradient */
+        body {
+            background: url('web/images/st5.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Static gradient overlay */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           
+            z-index: 0;
+        }
+
+        /* Glassmorphism effect for login card */
+        .login-card {
+            width: 400px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-title {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Input field styling */
+        .input-field .input {
+            border-color: #3273dc;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+
+        .input-field .input:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+
+        .input-field .input:focus {
+            border-color: #23d160;
+            box-shadow: 0 0 10px rgba(35, 209, 96, 0.5);
+        }
+
+        /* Button styling */
+        .button.is-primary {
+            background: linear-gradient(45deg, #3273dc, #23d160);
+            border-color: #3273dc;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(50, 115, 220, 0.4);
+        }
+
+        .button.is-primary:hover {
+            background: linear-gradient(45deg, #276cda, #1fb14f);
+            box-shadow: 0 8px 20px rgba(50, 115, 220, 0.6);
+        }
+
+        .button.is-primary:focus {
+            background: #23d160;
+            border-color: #23d160;
+        }
+
+        /* Icon color on focus */
+        .control.has-icons-left .input:focus + .icon.is-left {
+            color: #23d160;
+        }
+
+        /* Slight animation on input fields */
+        .input-field {
+            transition: transform 0.2s ease;
+        }
+
+        .input-field:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="card login-card">
+            <div class="card-content">
+                <p class="title has-text-centered login-title">Student Login</p>
+                <form action="studentcontrol.jsp">
+                    <div class="field input-field">
+                        <label class="label" for="Regdno">Regdno</label>
+                        <div class="control has-icons-left">
+                            <input id="Regdno" class="input" type="text" name="Regdno" placeholder="Regdno">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field input-field">
+                        <label class="label" for="pass">Password</label>
+                        <div class="control has-icons-left">
+                            <input id="pass" class="input" type="password" name="pass" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button is-primary is-fullwidth">Login</button>
+                        </div>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bulma JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

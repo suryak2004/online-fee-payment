@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Registration Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            /* Rich gradient background */
+            background: linear-gradient(45deg, 
+                #4158D0 0%, 
+                #C850C0 30%, 
+                #FFCC70 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: gradientMove 15s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 600px;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .form-title {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+            background: linear-gradient(45deg, #4158D0, #C850C0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #4158D0, #C850C0);
+            border-radius: 2px;
+        }
+
+        .form-floating {
+            margin-bottom: 20px;
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            padding: 12px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-control:focus {
+            border-color: #C850C0;
+            box-shadow: 0 0 10px rgba(200, 80, 192, 0.2);
+        }
+
+        .input-group-text {
+            background: linear-gradient(45deg, #4158D0, #C850C0);
+            color: white;
+            border: none;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .btn-register {
+            background: linear-gradient(45deg, #4158D0, #C850C0);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-register:hover {
+            background: linear-gradient(45deg, #C850C0, #4158D0);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(200, 80, 192, 0.3);
+        }
+
+        .required-field {
+            color: #ff4d6d;
+            margin-left: 4px;
+        }
+
+        .form-floating textarea.form-control {
+            height: 120px;
+        }
+a{
+text-decoration: none;}
+        /* Enhanced Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-floating {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .form-floating:nth-child(1) { animation-delay: 0.1s; }
+        .form-floating:nth-child(2) { animation-delay: 0.2s; }
+        .form-floating:nth-child(3) { animation-delay: 0.3s; }
+        .form-floating:nth-child(4) { animation-delay: 0.4s; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-title">Parent Registration Form</h2>
+            <form action="parentregcontrol.jsp">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="studentId" placeholder="Enter student ID" required name="id">
+                    <label for="studentId">Student ID<span class="required-field">*</span></label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="parentName" placeholder="Enter parent's name" required name="name">
+                    <label for="parentName">Parent Name<span class="required-field">*</span></label>
+                </div>
+
+                <div class="form-floating">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter mobile number" required name="mobile">
+                    </div>
+                </div>
+
+                <div class="form-floating">
+                    <textarea class="form-control" id="address" placeholder="Enter your address" required name="address"></textarea>
+                    <label for="address">Address<span class="required-field">*</span></label>
+                </div>
+
+                <button type="submit" class="btn btn-register mt-3">
+                    <i class="fas fa-user-plus me-2"></i>Register
+                </button>
+                <a href="adminpane.jsp">Back</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

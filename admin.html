@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+
+/* * * * * General CSS * * * * */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url("web/images/ece1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  background-color: #eaeff4; /* Fallback color */
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1140px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.login-form {
+  position: relative;
+  width: 100%;
+}
+
+.login-form h2 {
+  margin: 0 0 15px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.login-form label {
+  display: inline-block;
+  width: 40%;
+  text-align: left;
+  margin-bottom: 10px;
+  letter-spacing: .5px;
+  color: #000000;
+}
+
+.login-form input {
+  display: inline-block;
+  width: 55%;
+  height: 35px;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid #cccccc;
+  border-radius: 30px;
+}
+
+.login-form input:focus {
+  border-color: #ff574e;
+}
+
+.login-form input[type=submit] {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 100%;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.login-form input[type=submit]:hover {
+  background: #333333;
+}
+
+a {
+  text-decoration: none;
+}
+</style>
+
+<meta charset="UTF-8">
+<title>Admin Login</title>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="container">
+    <div class="login-form">
+      <h2>Admin Login</h2>
+      <form action="admincontrol.jsp">
+        <p>
+          <label>Email address<span>*</span></label>
+          <input type="text" placeholder="Email" name="un" required>
+        </p>
+        <p>
+          <label>Password<span>*</span></label>
+          <input type="password" placeholder="Password" name="pass" required>
+        </p>
+        <p>
+          <input type="submit" value="Login">
+        </p>
+
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

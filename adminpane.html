@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <title>Admin Dashboard</title>
+    
+    <!-- FontAwesome for icons -->
+    
+ 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            background: #f4f4f4;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #2c3e50;
+            padding-top: 20px;
+            color: white;
+            position: fixed;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .sidebar ul li:hover {
+            background: #34495e;
+            cursor: pointer;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            width: calc(100% - 250px);
+                    }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+        .logout {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background: #e74c3c;
+    }
+    .logout a {
+        display: block;
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+    .logout a:hover {
+        background: #c0392b;
+    </style>
+</head>
+<body>
+
+
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="studentreg.html"><i class="fa-solid fa-user-plus"></i> Add Student</a></li>
+            <li><a href="parentreg.html"><i class="fa-solid fa-user-group"></i> Add Parent</a></li>
+            <li><a href="#"><i class="fa-solid fa-users"></i> View Students</a></li>
+            <li><a href="attendance.html"><i class="fa-solid fa-calendar-check"></i> Add Attendance</a></li>
+            <li><a href="#"><i class="fa-solid fa-dollar-sign"></i> Add Fee</a></li>
+              <li><a href="#"><i class="fa-solid fa-dollar-sign"></i> Email Alert</a></li>
+        </ul>
+        <div class="logout">
+            <a href="Parentlogin.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </div>
+    </div>
+    
+    
+   
+    
+    <div class="content">
+        <h1>Welcome to Admin Dashboard</h1><br><br>
+        <p>This is Admin Dashboard</p><br><br>
+        <p>Hello Admin</p>
+    </div>
+</body>
+</html>

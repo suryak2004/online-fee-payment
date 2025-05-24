@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate UPI QR Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("web/images/pay.jpg");
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-size: cover;
+            
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2); /* Transparent effect */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            backdrop-filter: blur(10px); /* Glass effect */
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        h2, h3 {
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 6px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: all 0.3s ease-in-out;
+            box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            border-color: #f1c40f;
+            outline: none;
+            box-shadow: 0px 0px 10px rgba(241, 196, 15, 0.5);
+        }
+
+        button {
+            background: #f1c40f;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background: #d4ac0d;
+            transform: scale(1.05);
+        }
+
+        #qrImage {
+            width: 200px;
+            height: 200px;
+            margin-top: 15px;
+            border: 5px solid white;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter UPI Details</h2>
+        <form id="upiForm">
+            <label>UPI ID:</label>
+            <input type="text" name="upiID" placeholder="Enter your UPI ID" required><br>
+
+            <label>Amount (INR):</label>
+            <input type="number" name="amount" step="0.01" placeholder="Enter amount" required><br>
+
+            <label>Transaction Note:</label>
+            <input type="text" name="note" placeholder="Enter a note" required><br>
+
+            <button type="submit">Generate QR Code</button>
+        </form>
+
+        <h3>Scan QR Code to Pay</h3>
+        <img id="qrImage" src="" alt="QR Code will appear here">
+    </div>
+
+    <script>
+        document.getElementById("upiForm").onsubmit = function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const params = new URLSearchParams(new FormData(form)).toString();
+            document.getElementById("qrImage").src = "generateQR?" + params;
+        };
+    </script>
+</body>
+</html>

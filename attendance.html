@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+a{
+text-decoration: none;}
+        h2 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #4a5568, #2d3748);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #f7fafc;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+            outline: none;
+            background-color: #fff;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            flex: 1;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        button:first-child {
+            background: linear-gradient(45deg, #48bb78, #38a169);
+            color: white;
+        }
+
+        button:last-child {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .percentage-display {
+            background: linear-gradient(135deg, #f6f8fa, #e2e8f0);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #4a5568;
+            font-size: 18px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Add animation for inputs */
+        @keyframes inputFocus {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        input:focus {
+            animation: inputFocus 0.3s ease;
+        }
+
+        /* Add hover effect for the container */
+        .container:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Attendance Tracker</h2>
+        <form id="attendanceForm" action="addattendance.jsp">
+            <div class="form-group">
+                <label for="studentId">Student ID:</label>
+                <input type="text" id="studentId" required name="id">
+            </div>
+            
+            <div class="form-group">
+                <label for="totalClasses">Total Conducted Classes:</label>
+                <input type="number" id="totalClasses" min="0" required name="total">
+            </div>
+
+            <div class="form-group">
+                <label for="attendedClasses">Attended Classes:</label>
+                <input type="number" id="attendedClasses" min="0" required name="came">
+            </div>
+            <div class="button-container">
+                <button type="submit" >Add Attendance</button>
+                
+            </div>
+        </form>
+        <a href="adminpane.jsp">Back</a>
+    </div>
+
+    <script>
+        function addAttendance() {
+            // Add your attendance logic here
+            alert("Attendance added successfully!");
+        }
+
+        function calculatePercentage() {
+            const totalClasses = parseInt(document.getElementById('totalClasses').value);
+            const attendedClasses = parseInt(document.getElementById('attendedClasses').value);
+            
+            if (totalClasses > 0) {
+                const percentage = (attendedClasses / totalClasses) * 100;
+                document.getElementById('percentage').textContent = percentage.toFixed(2) + '%';
+            } else {
+                alert("Total classes should be greater than 0");
+            }
+        }
+    </script>
+</body>
+</html>
